@@ -75,6 +75,7 @@ RUN mkdir /var/lib/murmur && \
 	sed -i 's/^database=$/database=\/var\/lib\/murmur\/murmur.sqlite/' /etc/murmur/murmur.ini
 
 EXPOSE 64738/tcp 64738/udp 50051
+VOLUME ["/etc/murmur", "/var/lib/murmur"]
 USER murmur
 
 CMD /usr/bin/mumble-server -v -fg -ini /etc/murmur/murmur.ini
